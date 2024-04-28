@@ -89,19 +89,12 @@ images.forEach((image) => {
 gallery.addEventListener("click", (event) => {
   event.preventDefault();
 
-  if (event.target.nodeName !== "IMG") {
-    return;
-  }
-
-  const largeImageSrc = event.target.dataset.source;
-  console.log("Large image source:", largeImageSrc);
-});
-
-gallery.addEventListener("click", (event) => {
   if (event.target.nodeName === "IMG") {
-    const largeImageUrl = event.target.dataset.source;
+    const largeImageSrc = event.target.dataset.source;
+    console.log("Large image source:", largeImageSrc);
+
     const instance = basicLightbox.create(
-      `<img src="${largeImageUrl}" alt="Large Image">`
+      `<img src="${largeImageSrc}" alt="Large Image">`
     );
     instance.show();
   }
